@@ -1,0 +1,22 @@
+{
+  "name": "nodenotes",
+  "version": "1.0.0",
+  "description": "## Why Refreshing my Node skills while I have a job that is Node-free. Insert tears here.",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ihatetoast/nodenotes.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ihatetoast/nodenotes/issues"
+  },
+  "homepage": "https://github.com/ihatetoast/nodenotes#readme",
+  "dependencies": {
+    "validator": "^13.5.2"
+  }
+}
