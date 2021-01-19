@@ -1,5 +1,6 @@
-const validator = require("validator")
 const notes = require('./notes.js')
+const chalk = require('chalk')
 const notesmsg = notes()
 console.log(notesmsg)
-console.log(validator.isEmail("ihatetoast@gmail.com"));
+console.log(chalk.green.bgRed.bold("success"))
+console.log(chalk.bgRed.inverse("inverse"))

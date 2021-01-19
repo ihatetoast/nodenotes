@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/ihatetoast/nodenotes#readme",
   "dependencies": {
+    "chalk": "^4.1.0",
     "validator": "^13.5.2"
   }
 }
