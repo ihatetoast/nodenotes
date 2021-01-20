@@ -1,6 +1,10 @@
 const notes = require('./notes.js')
 const chalk = require('chalk')
-const notesmsg = notes()
-console.log(notesmsg)
-console.log(chalk.green.bgRed.bold("success"))
-console.log(chalk.bgRed.inverse("inverse"))
+
+const command = process.argv[2].toLowerCase()
+
+if(command === 'add'){
+    console.log("add shit")
+} else {
+    console.log("don't add shit")
+}
