@@ -1,10 +1,7 @@
-const notes = require('./notes.js')
 const chalk = require('chalk')
+const yargs = require('yargs')
 
-const command = process.argv[2].toLowerCase()
+const notes = require('./notes.js')
 
-if(command === 'add'){
-    console.log("add shit")
-} else {
-    console.log("don't add shit")
-}
+console.log(process.argv);
+console.log(yargs.argv);
