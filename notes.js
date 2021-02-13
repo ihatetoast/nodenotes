@@ -1,18 +1,31 @@
 const fs = require('fs');
 const chalk = require('chalk');
 
-const getNotes = function(){
-    return "Your notes ..."
+const getNotes = ()=>{
+    const notes = loadNotes();
+    console.log(chalk.black.bgYellow("Your notes:"))
+    notes.map((note)=>{
+        console.log(`Title: ${note.title}`)
+    })
+}
+const readNote = (title) =>{
+    const notes = loadNotes();
+
+    const note = notes.find((note) => note.title === title)
+    if(note){
+      console.log(chalk.bgBlue(note.title)) 
+      console.log(note.body)
+    } else{
+        console.log(chalk.black.bgRed("No note found"));
+    }
+    
 }
 
-
-const addNote = function(title, body){
+const addNote = (title, body) =>{
     const notes = loadNotes();
-    const duplicateNotes = notes.filter((note)=>{
-        return note.title === title
-    })
+    const duplicateNote = notes.find((note) => note.title === title);
 
-    if(duplicateNotes.length === 0){
+    if(!duplicateNote){
         notes.push({
             title: title, 
             body: body
@@ -24,11 +37,9 @@ const addNote = function(title, body){
     }
     
 }
-const deleteNote = function(title){
+const deleteNote = (title)=>{
     const notes = loadNotes();
-    const newNotesArr = notes.filter((note)=>{
-        return note.title !== title;
-    })
+    const newNotesArr = notes.filter((note)=>note.title !== title)
     if(notes.length > newNotesArr.length){
         console.log(chalk.bgGreen(`Note titled ${title} removed.`));
        saveNotes(newNotesArr)
@@ -38,11 +49,11 @@ const deleteNote = function(title){
     }
 
 }
-const saveNotes = function(notes){
+const saveNotes = (notes) =>{
     const JSONdata = JSON.stringify(notes)
     fs.writeFileSync('notes.json', JSONdata)
 }
-const loadNotes = function(){
+const loadNotes = ()=>{
     try{
         const dataBuffer = fs.readFileSync('notes.json');
         const dataString = dataBuffer.toString()
@@ -50,10 +61,10 @@ const loadNotes = function(){
     } catch(e){
        return []
     }
-   
 }
 module.exports = {
     getNotes: getNotes,
     addNote: addNote,
-    deleteNote: deleteNote
+    deleteNote: deleteNote,
+    readNote: readNote
 };
